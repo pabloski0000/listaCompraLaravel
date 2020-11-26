@@ -2,6 +2,6 @@
 
 @section('content')
 
-    Pantalla principal
+    Lista productos
 
 @stop
