@@ -10,7 +10,7 @@
             </div>
             <div class="card-body" style="padding:30px">
 
-             <form action="{{ url('/productos/edit/hola') }}" method="POST">
+             <form action="{{ url('/productos/edit/' . $producto->id) }}" method="POST">
                 {{ method_field('PUT') }}
 
                  @csrf

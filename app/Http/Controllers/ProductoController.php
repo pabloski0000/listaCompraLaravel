@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Producto;
 
 class ProductoController extends Controller
 {
@@ -305,7 +306,7 @@ class ProductoController extends Controller
 
 
     public function getIndex(){
-        return view('productos.index', ['arrayProductos' => $this->arrayProductos]);
+        return view('productos.index', ['arrayProductos' => Producto::all()]);
     }
 
     public function getCreate(){
@@ -313,11 +314,11 @@ class ProductoController extends Controller
     }
 
     public function getEdit($id){
-        return view('productos.edit', ['id' => $id]);
+        return view('productos.edit', ['producto' => Producto::findOrFail($id)]);
     }
 
     public function getShow($id){
-        return view('productos.show', array('arrayProductos' => $this->arrayProductos[$id]));
+        return view('productos.show', ['producto' => Producto::findOrFail($id)]);
     }
 
     public function getArrayProductos(){
